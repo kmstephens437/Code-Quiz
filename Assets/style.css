@@ -1,0 +1,16 @@
+body {
+    background-color: rgb(243, 206, 171)
+}
+
+.timer {
+    float:right;
+}
+
+main {
+    padding-top: 3rem;
+    text-align: center;
+}
+
+h3 {padding-bottom: 2rem;
+    padding-top: 2rem;
+}
