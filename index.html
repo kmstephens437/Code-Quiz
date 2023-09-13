@@ -2,18 +2,18 @@
 <html lang="en">
 
 <head>
-  <title>Code Quiz</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="./Assets/style.css">
   <script src = "Assets/script.js" type="text/javascript"></script>
+  <title>Code Quiz</title>
 </head>
 
 <body>
   <nav>
     <a onclick="pullScores()" href="#"><h4>View Highscores</h4></a>
-    <h4 class=timer>Time: <span id="timeLeft">0</span></h4>
+    <h4 class=timer>Time:<span id="remainingTime">0</span></h4>
   </nav>
   <main>
     <h1 style="text-align:center;">Coding Quiz Challenge</h1>
@@ -21,11 +21,25 @@
      style="text-align:center;">
      Try to answer the following code related <br>
      questions. Keep in mind that incorrect answers will <br>
-    penalize your score/time by 10 seconds.</h3>
-    <button type="button" onclick="start()">Start Quiz!</button>
-    </a>
+    penalize your score/time by 10 seconds. You have 60 seconds!</h3>
+    <button onclick="startQuiz()">Start Quiz!</button>
+    <script>
+      function startQuiz() {
+    remainingTime = 60;
+    document.getElementById("remainingTime").innerHTML = remainingTime;
+
+    timer = setInterval(function() {
+        remainingTime--;
+        document.getElementById("remainingTime").innerHTML = remainingTime;
+        if (remainingTime <= 0) {
+            clearInterval(timer);
+            gameOver();
+        }
+    }, 1000);
+}
+
+    </script>
   </main>
-  <script src= "script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 
